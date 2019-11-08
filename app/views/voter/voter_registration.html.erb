@@ -1,0 +1,12 @@
+<div class="container">
+  <%= form_for @voter, url: {action: :submit_voter_registration}, method: :post do |f| %>
+    <%= f.label "Name" %>
+    <%= f.text_field :name %><br>
+    <%= f.label "USN" %>
+    <%= f.text_field :usn %><br>
+    <%= f.label "email" %>
+    <%= f.text_field :email %><br>
+    <br>
+    <%= f.submit "Save" %>
+  <% end %>
+</div>

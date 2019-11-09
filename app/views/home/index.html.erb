@@ -1,5 +1,5 @@
 <div class="container" style="text-align: center;">
-  <% unless session["voted"] and current_user %>
+  <% if !session["voted"] and !current_user %>
     <%= link_to "Register", voter_registration_path %>
   <% end %>
   <% if session["voted"] == true %>

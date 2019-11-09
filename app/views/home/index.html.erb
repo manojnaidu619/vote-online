@@ -1,7 +1,13 @@
 <div class="container" style="text-align: center;">
-  <%= link_to "Register", voter_registration_path if !current_voter %>
-  <% if current_voter %>
-    <h1>Welcome <%= current_voter.name %>!</h1>
+  <% if !current_user and session["voted"] == false %>
+    <%= link_to "Register", voter_registration_path %>
+  <% end %>
+  <% if session["voted"] == true %>
+    <h2>You Already voted, Thanks for Participation!</h2>
+  <% end %>
+
+  <% if current_user %>
+    <h1>Welcome <%= current_user.name %>!</h1>
     <%= link_to "Vote Now", vote_now_path %>
   <% end %>
 </div>

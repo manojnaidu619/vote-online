@@ -15,7 +15,18 @@ class VoterController < ApplicationController
   end
 
   def vote_now
+    @candidates = Candidate.all
+  end
 
+  def register_vote
+    @candidate = Candidate.find_by_id(params["id"].to_i)
+    @candidate.vote_count += 1
+    if @candidate.save
+      redirect_to root_path(voted: true)
+      session[:user_id] = nil
+    else
+      render 'vote_now'
+    end
   end
 
 end

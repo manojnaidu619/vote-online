@@ -1,4 +1,5 @@
 class VoterController < ApplicationController
+  before_action :check_if_not_voted?
 
   def voter_registration
     @voter = Voter.new
@@ -35,4 +36,8 @@ private
 
 def voter_params
   params.require(:voter).permit(:name, :usn, :email)
+end
+
+def check_if_not_voted?
+  session["voted"] == false
 end

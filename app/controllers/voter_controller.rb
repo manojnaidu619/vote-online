@@ -6,12 +6,18 @@ class VoterController < ApplicationController
   end
 
   def submit_voter_registration
-    @voter = Voter.new(voter_params)
-    if @voter.save
-      redirect_to root_path
-      session[:user_id] = @voter.id
+    @usn = Voter.where(usn: params["voter"]["usn"].upcase)
+    if @usn.count > 0
+      redirect_to voter_registration_path, status: 302
+      flash[:info] = "Already Voted!"
     else
-      render "voter_registration"
+      @voter = Voter.new(voter_params)
+      if @voter.save
+        redirect_to root_path
+        session[:user_id] = @voter.id
+      else
+        render "voter_registration"
+      end
     end
   end
 

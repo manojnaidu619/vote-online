@@ -4,6 +4,7 @@ class AdminController < ApplicationController
   def index
     @candidates = Candidate.all
     @voters = Voter.all
+    @winners = Candidate.order(:vote_count).reverse
   end
 
   def add_candidate

@@ -8,9 +8,14 @@ class VoterController < ApplicationController
     @voter = Voter.new(voter_params)
     if @voter.save
       redirect_to root_path
+      session[:user_id] = @voter.id
     else
       render "voter_registration"
     end
+  end
+
+  def vote_now
+
   end
 
 end

@@ -1,3 +1,7 @@
 <div class="container" style="text-align: center;">
-  <%= link_to "VOTE NOW", voter_registration_path %>
+  <%= link_to "Register", voter_registration_path if !current_voter %>
+  <% if current_voter %>
+    <h1>Welcome <%= current_voter.name %>!</h1>
+    <%= link_to "Vote Now", vote_now_path %>
+  <% end %>
 </div>

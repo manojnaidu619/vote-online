@@ -1,0 +1,19 @@
+<div class="container">
+  <h1>Welcome Admin!</h1>
+  <%= link_to "Add Candidate!", add_candidate_path %><br><br>
+  <%= pie_chart Candidate.group(:vote_count).count %><br>
+  <div class="row">
+    <div class="col-md-5" style="background-color: yellow;">
+      <h2>Candidate List</h2>
+      <% @candidates.each do |i| %>
+        <%= i.name %><br>
+      <% end %>
+    </div>
+    <div class="col-md-5" style="background-color: red;">
+      <h2>Voter's List</h2>
+      <% @voters.each do |i| %>
+        <%= i.name %><br>
+      <% end %>
+    </div>
+  </div>
+</div>

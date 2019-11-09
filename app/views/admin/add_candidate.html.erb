@@ -1,0 +1,15 @@
+<div class="container">
+  <%= form_for @candidate, url: {action: :create_candidate}, method: :post do |f| %>
+    <%= f.label "Name" %>
+    <%= f.text_field :name %><br>
+    <%= f.label "Image path" %>
+    <%= f.text_field :image_path, value: "https://drive.google.com/uc?export=view&id=" %><br>
+    <%= f.label "Party" %>
+    <%= f.text_field :party %><br>
+    <%= f.label "Constituency Code" %>
+    <%= f.text_field :constituency_code %><br>
+    <%= f.label "Place" %>
+    <%= f.text_field :place %><br>
+    <%= f.submit "Save" %>
+  <% end %>
+</div>

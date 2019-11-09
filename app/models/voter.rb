@@ -4,6 +4,7 @@ class Voter < ApplicationRecord
   private
 
   def capitalize_usn
-    usn.upcase!  
+    usn.upcase!
+    name.upcase!  
   end
 end

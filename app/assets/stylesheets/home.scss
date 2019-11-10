@@ -80,9 +80,10 @@
 
 @media (min-width: 300px) and (max-width: 501px){
   .voting-image-div{
-    margin-top: 25%;
+    transform: scale(1.2);
+    margin-top: 35%;
   }
   .after-image-div{
-    margin-top: 5%;
+    margin-top: 7%;
   }
 }

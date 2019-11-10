@@ -24,6 +24,12 @@
 }
 @media (min-width:480px){
   .voting-cards{
-    margin-bottom: 15px; 
+    margin-bottom: 15px;
+  }
+}
+
+@media (min-width: 300px) and (max-width: 501px){
+  .form-div{
+    margin: 0px 5%;
   }
 }

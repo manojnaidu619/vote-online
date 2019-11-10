@@ -12,6 +12,7 @@ gem 'pg'
 gem 'bootsnap', '>= 1.4.2', require: false
 gem 'chartkick'
 gem 'groupdate'
+gem 'rails_12factor'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

@@ -1,13 +1,33 @@
-<div class="container" style="text-align: center;">
-  <% if !session["voted"] and !current_user %>
-    <%= link_to "Register", voter_registration_path %>
-  <% end %>
-  <% if session["voted"] == true %>
-    <h2>You Already voted, Thanks for Participation!</h2>
-  <% end %>
+<div class="container-fluid landing-page" style="text-align: center;">
+  <div class="row">
+    <div class="col text-center">
+      <h1 style="margin-bottom: 0px;">One Vote can Rock the Boat, <b>Vote Now</b></h1>
+    </div>
+  </div>
+  <div class="row justify-content-center">
+    <div class="col-8 voting-image-div">
+      <%= image_tag "voting.png", class: "voting-image", style: 'height: 100%; width: 100%; object-fit: contain' %>
+    </div>
+  </div>
+  <br><br>
+  <div class="row justify-content-center">
+    <div class="col">
+      <div class="after-image-div">
+          <% if !session["voted"] and !current_user %>
+            <%= link_to "REGISTER", voter_registration_path, class: "register-button" %>
+          <% end %>
+          <% if session["voted"] == true %>
+            <h3>Your vote has been registered, Thanks for Participation!</h3>
+            <img src="https://img.icons8.com/color/48/000000/ok--v2.png">
+          <% end %>
 
-  <% if current_user %>
-    <h1>Welcome <%= current_user.name %>!</h1>
-    <%= link_to "Vote Now", vote_now_path %>
-  <% end %>
+          <% if current_user %>
+            <!--<h1>Welcome <%#= current_user.name %>!</h1>-->
+            <div class="vote-now-div">
+              <%= link_to "Vote Now", vote_now_path, class: "vote-now-button" %>
+            </div>
+          <% end %>
+      </div>
+    </div>
+  </div>
 </div>

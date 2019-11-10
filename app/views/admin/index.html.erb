@@ -1,28 +1,58 @@
 <div class="container">
-  <h1>Welcome Admin!</h1>
-  <%= link_to "Add Candidate!", add_candidate_path %><br><br>
-  <h2>Rankings!</h2>
-  <% @winners.each do |i| %>
-   Name : <%= i.name %> |
-   Party : <%= i.party %> |
-   Votes : <%= i.vote_count %>
-   <br>
-  <% end %>
-  <%= pie_chart Candidate.group(:vote_count).count, donut: true, download: true %><br>
+  <center><h1>Admin Panel</h1></center>
+  <center><%= button_to "Add Candidate", add_candidate_path, class: "add-candidate", method: :get %><br><br></center>
+  <h2>Results</h2>
+  <%= pie_chart Candidate.group(:vote_count).count, donut: true, download: true, colors: ["#00FF00", "#FFA500"]  %><br><br>
+  <table>
+    <tr>
+      <th>Candidate Name</th>
+      <th>Party</th>
+      <th>Constituency Code</th>
+      <th>Vote Count</th>
+    </tr>
+    <% @winners.each do |i| %>
+      <tr>
+        <td><%= i.name %></td>
+        <td><%= i.party %></td>
+        <td><%= i.constituency_code %></td>
+        <td><%= i.vote_count %></td>
+      </tr>
+    <% end %>
+  </table><br>
   <div class="row">
-    <div class="col-md-5" style="background-color: yellow;">
-      <h2>Candidate List</h2>
-      <% @candidates.each do |i| %>
-        <%= i.name %><br>
-      <% end %>
-    </div>
-    <div class="col-md-5" style="background-color: red;">
+    <div class="col">
       <h2>Voter's List</h2>
+      <table>
+        <tr>
+          <th>Voter Name</th>
+          <th>email</th>
+          <th>USN</th>
+        </tr>
       <% @voters.each do |i| %>
-        <%= i.name %> |
-        <%= i.email %> |
-        <%= i.usn %><br>
+        <tr>
+          <td><%= i.name %></td>
+          <td><%= i.email %></td>
+          <td><%= i.usn %></td>
+        </tr>
       <% end %>
+      </table>
+    </div>
+    <div class="col">
+      <h2>Candidate's List</h2>
+      <table>
+        <tr>
+          <th>Candidate Name</th>
+          <th>Party</th>
+          <th>Constituency Code</th>
+        </tr>
+        <% @candidates.each do |i| %>
+          <tr>
+            <td><%= i.name %></td>
+            <td><%= i.party %></td>
+            <td><%= i.constituency_code %></td>
+          </tr>
+        <% end %>
+      </table>
     </div>
   </div>
 </div>

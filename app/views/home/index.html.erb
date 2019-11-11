@@ -17,11 +17,10 @@
             <%= link_to "REGISTER", voter_registration_path, class: "register-button" %>
           <% end %>
           <% if session["voted"] == true %>
-            <h3>Your vote has been registered, Thanks for Participation!</h3>
-            <img src="https://img.icons8.com/color/48/000000/ok--v2.png">
+            <img src="https://img.icons8.com/color/48/000000/ok--v2.png"><h3>Your vote has been registered, Thanks for Participation!</h3>
+            <a href="<%= voter_pdf_path %>.pdf">Your Certificate</a>
           <% end %>
-          <% if current_user %>
-            <!--<h1>Welcome <%#= current_user.name %>!</h1>-->
+          <% if current_user and !current_user.voted? %>
             <div class="vote-now-div">
               <%= link_to "Vote Now", vote_now_path, class: "vote-now-button" %>
             </div>

@@ -1,5 +1,6 @@
 class VoterController < ApplicationController
   before_action :check_if_not_voted?
+  include ApplicationHelper
 
   def voter_registration
     @voter = Voter.new
@@ -29,11 +30,24 @@ class VoterController < ApplicationController
     @candidate = Candidate.find_by_id(params["id"].to_i)
     @candidate.vote_count += 1
     if @candidate.save
+      @voter = Voter.where(id: current_user)
+      @voter.first.toggle!(:voted)
       redirect_to root_path(voted: true)
-      session[:user_id] = nil
     else
       render 'vote_now'
     end
+  end
+
+  def voter_pdf
+    @voter = Voter.where(id: current_user.id).first
+    respond_to do |format|
+        format.pdf do
+          pdf = Prawn::Document.new
+          pdf.font_size 25
+          pdf.text_box "Thanks #{@voter.name} for Voting!", at: [100,500]
+          send_data pdf.render, filename: "#{ @voter.name }-vote-certificate.pdf"
+        end
+      end
   end
 
 end

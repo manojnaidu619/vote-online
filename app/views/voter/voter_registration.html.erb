@@ -8,7 +8,7 @@
         <%= f.label "USN" %>
         <%= f.text_field :usn, required: true, placeholder: "ex : eng17cs0122 (case-insensitive)" %><br>
         <%= f.label "email" %>
-        <%= f.text_field :email, required: true, placeholder: "ex : example@example.com"  %><br>
+        <%= f.text_field :email, required: true, placeholder: "ex : example@example.com", pattern: "[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" %><br>
         <br>
         <%= f.submit "Save", class: "voter-registration-button" %>
       <% end %>

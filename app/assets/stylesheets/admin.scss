@@ -36,3 +36,18 @@ tr:nth-child(even) {
   cursor: pointer;
   outline: none;
 }
+
+.results-div{
+  border: 1px solid #ccc;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 5px 5px 15px #dddd;
+}
+
+.election-details{
+  border: 1px solid #ccc;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 5px 5px 15px #dddd;
+  margin: 6px 10px;
+}

@@ -4,9 +4,9 @@
       <%= form_for @candidate, url: {action: :create_candidate}, method: :post do |f| %>
         <center><h2>Add New Candidate</h2><img src="https://img.icons8.com/material-two-tone/48/000000/contract-job.png"></center>
         <%= f.label "Name" %>
-        <%= f.text_field :name %><br>
-        <%= f.label "Image path" %>
-        <%= f.text_field :image_path, value: "https://drive.google.com/uc?export=view&id=" %><br>
+        <%= f.text_field :name %>
+        <%#= f.label "Image path" %>
+        <%#= f.text_field :image_path, value: "https://drive.google.com/uc?export=view&id=" %><br>
         <%= f.label "Party" %>
         <%= f.text_field :party %><br>
         <%= f.label "Constituency Code" %>

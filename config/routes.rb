@@ -7,4 +7,5 @@ Rails.application.routes.draw do
   get '/admin', to: "admin#index"
   get '/add-candidate', to: "admin#add_candidate"
   post '/create_candidate', to: "admin#create_candidate"
+  delete '/reset-election', to: "admin#reset_election"
 end

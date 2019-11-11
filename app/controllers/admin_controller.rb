@@ -20,6 +20,16 @@ class AdminController < ApplicationController
     end
   end
 
+  def reset_election
+    Voter.delete_all
+    @candidates = Candidate.all
+    @candidates.each do |i|
+      i.vote_count = 0
+      i.save
+    end
+    redirect_to admin_path
+  end
+
   private
 
   def candidate_params

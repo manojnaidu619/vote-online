@@ -1,6 +1,9 @@
 <div class="container">
   <center><h1>Admin Panel</h1></center>
-  <center><%= button_to "Add Candidate", add_candidate_path, class: "add-candidate", method: :get %><br><br></center>
+  <div class="action-buttons" style="text-align:center;">
+    <%= link_to "Add Candidate", add_candidate_path, class: "add-candidate", method: :get %>
+    <%= link_to "RESET", reset_election_path, class: "add-candidate", method: :delete, data: {confirm: "Are you Sure?", disable_with: "Processing..."} %>
+  </div>
   <h2>Results</h2>
   <%= pie_chart Candidate.group(:vote_count).count, donut: true, download: true, colors: ["#00FF00", "#FFA500"]  %><br><br>
   <table>
@@ -55,4 +58,4 @@
       </table>
     </div>
   </div>
-</div>
+</div><br><br>

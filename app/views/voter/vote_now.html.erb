@@ -11,7 +11,7 @@
         Party : <%= i.party %><br>
         constituency_code : <%= i.constituency_code %><br>
         Place : <%= i.place %><br><br>
-        <%= link_to "VOTE", register_vote_path(id: i.id), method: :post, class:"vote-button" %><br><br>
+        <%= link_to "VOTE", register_vote_path(id: i.id), method: :post, class:"vote-button", data: {disable_with: "processing..."} %><br><br>
       </div>
    <% end %>
   </div>

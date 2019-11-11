@@ -47,6 +47,21 @@
   //background: linear-gradient(to right, #8CA6DB, #B993D6); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
+.certificate-button{
+  text-decoration: none;
+  color: #333333;
+  border: 1px solid cornsilk;
+  padding: 8px;
+  border-radius: 10px;
+  background-color: SpringGreen;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.certificate-button:hover{
+  background-color: palegreen;
+}
+
 @media (min-width: 1300px){
   .voting-image-div{
     transform: scale(0.7);

@@ -15,6 +15,11 @@
   </head>
 
   <body>
+    <% if !flash.empty? %>
+      <% flash.each do |key,msg| %>
+        <center><h2><strong style="color: OrangeRed;"><%= msg %></strong></h2></center>
+      <% end %>
+    <% end %>
     <%= yield %>
   </body>
 </html>

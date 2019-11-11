@@ -9,7 +9,7 @@ class VoterController < ApplicationController
     @usn = Voter.where(usn: params["voter"]["usn"].upcase)
     if @usn.count > 0
       redirect_to voter_registration_path, status: 302
-      flash[:info] = "Already Voted!"
+      flash[:notice] = "Already Voted!"
     else
       @voter = Voter.new(voter_params)
       if @voter.save

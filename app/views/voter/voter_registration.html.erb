@@ -4,11 +4,11 @@
       <center><h1>Voter Registration</h1><img src="https://img.icons8.com/ios-filled/50/000000/edit-user-male.png"></center>
       <%= form_for @voter, url: {action: :submit_voter_registration}, method: :post do |f| %>
         <%= f.label "Name" %>
-        <%= f.text_field :name, required: true %><br>
+        <%= f.text_field :name, required: true, placeholder: "ex : Manoj Naidu" %><br>
         <%= f.label "USN" %>
-        <%= f.text_field :usn, required: true  %><br>
+        <%= f.text_field :usn, required: true, placeholder: "ex : eng17cs0122 (case-insensitive)" %><br>
         <%= f.label "email" %>
-        <%= f.text_field :email, required: true  %><br>
+        <%= f.text_field :email, required: true, placeholder: "ex : example@example.com"  %><br>
         <br>
         <%= f.submit "Save", class: "voter-registration-button" %>
       <% end %>

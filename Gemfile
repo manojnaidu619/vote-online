@@ -14,6 +14,7 @@ gem 'chartkick'
 gem 'groupdate'
 gem 'rails_12factor'
 gem 'prawn'
+gem 'hirb'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
